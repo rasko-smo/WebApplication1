@@ -1,10 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
+using System.Threading.Tasks;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -77,6 +78,14 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
+
+            // テーブルから重複の無い出版社名を取得
+            var list = _context.Books
+                .Select(b => new { Publisher = b.Publisher })
+                .Distinct();
+            // 選択オプションのリストを準備
+            ViewBag.Opts = new SelectList(list, "Publisher", "Publisher");
+
             return View(book);
         }
 
