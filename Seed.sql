@@ -21,4 +21,4 @@ INSERT INTO Books(Isbn, Title, Price, Publisher, Published, Sample)
 INSERT INTO Books(Isbn, Title, Price, Publisher, Published, Sample)
 	VALUES('978-4-7981-8094-6', N'kintone', 3960, N'—V‰jŽÒ', '2024-02-15', 1);
 
-	SELECT * FROM Books;
+SELECT * FROM Books;
