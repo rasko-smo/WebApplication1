@@ -7,6 +7,7 @@ namespace WebApplication1.Models
         public int Id { get; set; }
         
         [Display(Name = "ISBN")]
+        [DataType(DataType.ImageUrl)]
         public string Isbn { get; set; } = String.Empty;
         
         [Display(Name = "タイトル")]
@@ -20,6 +21,7 @@ namespace WebApplication1.Models
         public string Publisher { get; set; } = String.Empty;
         
         [Display(Name = "刊行日")]
+        [DataType(DataType.Date)]
         public DateTime Published { get; set; }
         
         [Display(Name = "配布サンプル")]
